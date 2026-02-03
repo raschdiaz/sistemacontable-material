@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Dashboard</title>
+    <link href="css/material-components-web.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css" type="text/css">
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background-color: #f5f5f5;
+        }
+
+        .app-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: auto;
+            position: relative;
+        }
+
+        .main-content {
+            padding: 2rem;
+            margin-top: 64px; /* Height of top bar */
+        }
+
+        /* Right drawer specific styling */
+        .mdc-drawer--right {
+            border-left: 1px solid rgba(0, 0, 0, .12);
+            border-right: none;
+            right: 0;
+            left: auto;
+        }
+
+        .mdc-drawer--right.mdc-drawer--animate,
+        .mdc-drawer--right.mdc-drawer--closing {
+            -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+        }
+
+        .mdc-drawer--right.mdc-drawer--opening {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="mdc-typography">
+
+    <!-- Left Slider (Drawer) -->
+    <aside class="mdc-drawer mdc-drawer--dismissible" id="left-drawer">
+        <div class="mdc-drawer__content">
+            <nav class="mdc-list">
+                <a class="mdc-list-item mdc-list-item--activated" href="#">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
+                    <span class="mdc-list-item__text">Dashboard</span>
+                </a>
+                <a class="mdc-list-item" href="#">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">settings</i>
+                    <span class="mdc-list-item__text">Settings</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <div class="app-content">
+        <!-- Top App Bar -->
+        <header class="mdc-top-app-bar" style="z-index: 7;">
+            <div class="mdc-top-app-bar__row">
+                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                    <button id="btn-left" class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+                    <span class="mdc-top-app-bar__title">Accounting System</span>
+                </section>
+                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+                    <button id="btn-right" class="material-icons mdc-top-app-bar__action-item mdc-icon-button">account_circle</button>
+                </section>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <h1 class="mdc-typography--headline4">Main Content Area</h1>
+            <p>Use the top bar icons to slide the left and right menus.</p>
+        </main>
+    </div>
+
+    <!-- Right Slider (Drawer) -->
+    <aside class="mdc-drawer mdc-drawer--dismissible mdc-drawer--right" id="right-drawer">
+        <div class="mdc-drawer__content">
+            <div class="mdc-list">
+                <h6 class="mdc-list-group__subheader">User Profile</h6>
+                <div class="mdc-list-item">
+                    <span class="mdc-list-item__text">Admin User</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <script src="js/material-components-web.min.js"></script>
+    <script>
+        // Initialize Components
+        const topAppBar = mdc.topAppBar.MDCTopAppBar.attachTo(document.querySelector('.mdc-top-app-bar'));
+        const leftDrawer = mdc.drawer.MDCDrawer.attachTo(document.getElementById('left-drawer'));
+        const rightDrawer = mdc.drawer.MDCDrawer.attachTo(document.getElementById('right-drawer'));
+
+        // Toggle Handlers
+        document.getElementById('btn-left').addEventListener('click', (e) => {
+            e.stopPropagation();
+            leftDrawer.open = !leftDrawer.open;
+        });
+        document.getElementById('btn-right').addEventListener('click', (e) => {
+            e.stopPropagation();
+            rightDrawer.open = !rightDrawer.open;
+        });
+
+        // Close drawers on outside click
+        document.querySelector('.app-content').addEventListener('click', () => {
+            if (leftDrawer.open) leftDrawer.open = false;
+            if (rightDrawer.open) rightDrawer.open = false;
+        });
+    </script>
+</body>
+</html>
