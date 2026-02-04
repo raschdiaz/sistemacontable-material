@@ -47,6 +47,14 @@
             -webkit-transform: translateX(0);
             transform: translateX(0);
         }
+
+        .mdc-drawer__content {
+            padding-top: 4rem; /* Space for top bar */
+        }
+
+        .mdc-list-item__graphic {
+            margin-right: 7.5px;
+        }
     </style>
 </head>
 <body class="mdc-typography">
@@ -54,18 +62,7 @@
     <!-- Left Slider (Drawer) -->
     <aside class="mdc-drawer mdc-drawer--dismissible" id="left-drawer">
         <div class="mdc-drawer__content">
-            <nav class="mdc-list">
-                <a class="mdc-list-item mdc-list-item--activated" href="#">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
-                    <span class="mdc-list-item__text">Dashboard</span>
-                </a>
-                <a class="mdc-list-item" href="#">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">settings</i>
-                    <span class="mdc-list-item__text">Settings</span>
-                </a>
-            </nav>
+            <!-- Menu items will be loaded dynamically -->
         </div>
     </aside>
 
@@ -107,6 +104,82 @@
         const topAppBar = mdc.topAppBar.MDCTopAppBar.attachTo(document.querySelector('.mdc-top-app-bar'));
         const leftDrawer = mdc.drawer.MDCDrawer.attachTo(document.getElementById('left-drawer'));
         const rightDrawer = mdc.drawer.MDCDrawer.attachTo(document.getElementById('right-drawer'));
+
+        // Load dynamic menu
+        fetch('menu.json')
+            .then(response => response.json())
+            .then(data => {
+                const drawerContent = document.querySelector('#left-drawer .mdc-drawer__content');
+                drawerContent.innerHTML = '';
+
+                const listGroup = document.createElement('div');
+                listGroup.className = 'mdc-list-group';
+
+                data.forEach((category, index) => {
+                    const list = document.createElement('nav');
+                    list.className = 'mdc-list';
+                    if (category.category) list.style.display = 'none';
+
+                    let hasActiveItem = false;
+
+                    category.items.forEach(item => {
+                        const link = document.createElement('a');
+                        link.className = 'mdc-list-item';
+                        if (item.activated) {
+                            link.classList.add('mdc-list-item--activated');
+                            link.setAttribute('aria-current', 'page');
+                            hasActiveItem = true;
+                        }
+                        link.href = item.href || '#';
+                        link.innerHTML = `
+                            <span class="mdc-list-item__ripple"></span>
+                            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">${item.icon}</i>
+                            <span class="mdc-list-item__text">${item.text}</span>
+                        `;
+                        list.appendChild(link);
+                    });
+
+                    if (category.category) {
+                        const subheader = document.createElement('h3');
+                        subheader.className = 'mdc-list-group__subheader';
+                        subheader.style.cursor = 'pointer';
+                        subheader.style.display = 'flex';
+                        subheader.style.justifyContent = 'space-between';
+                        subheader.style.alignItems = 'center';
+
+                        const iconTransform = hasActiveItem ? 'rotate(180deg)' : 'rotate(0deg)';
+                        subheader.innerHTML = `
+                            ${category.category}
+                            <i class="material-icons" style="transition: transform 0.3s; transform: ${iconTransform};">expand_more</i>
+                        `;
+
+                        subheader.addEventListener('click', () => {
+                            const isHidden = list.style.display === 'none';
+                            list.style.display = isHidden ? 'block' : 'none';
+                            const icon = subheader.querySelector('.material-icons');
+                            icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+                        });
+
+                        listGroup.appendChild(subheader);
+
+                        if (hasActiveItem) {
+                            list.style.display = 'block';
+                        }
+                    } else {
+                        list.style.display = 'block';
+                    }
+
+                    listGroup.appendChild(list);
+
+                    if (index < data.length - 1) {
+                        const divider = document.createElement('hr');
+                        divider.className = 'mdc-list-divider';
+                        listGroup.appendChild(divider);
+                    }
+                });
+                drawerContent.appendChild(listGroup);
+            })
+            .catch(error => console.error('Error loading menu:', error));
 
         // Toggle Handlers
         document.getElementById('btn-left').addEventListener('click', (e) => {

@@ -1,0 +1,253 @@
+[
+    {
+        "category": "Opciones",
+        "items": [
+            {
+                "text": "Cambiar Asiento",
+                "icon": "edit",
+                "href": "#",
+                "activated": true
+            },
+            {
+                "text": "Depreciación",
+                "icon": "trending_down",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de inmuebles",
+                "icon": "domain",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de articulos",
+                "icon": "layers",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de códigos",
+                "icon": "code",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de grupos",
+                "icon": "group_work",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de producción",
+                "icon": "build",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de terceros",
+                "icon": "contacts",
+                "href": "#"
+            },
+            {
+                "text": "Generar contraseña",
+                "icon": "vpn_key",
+                "href": "#"
+            }
+        ]
+    },
+    {
+        "category": "Opciones 2",
+        "items": [
+            {
+                "text": "Cambiar Asiento",
+                "icon": "edit",
+                "href": "#"
+            },
+            {
+                "text": "Depreciación",
+                "icon": "trending_down",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de inmuebles",
+                "icon": "domain",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de articulos",
+                "icon": "layers",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de códigos",
+                "icon": "code",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de grupos",
+                "icon": "group_work",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de producción",
+                "icon": "build",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de terceros",
+                "icon": "contacts",
+                "href": "#"
+            },
+            {
+                "text": "Generar contraseña",
+                "icon": "vpn_key",
+                "href": "#"
+            }
+        ]
+    },
+    {
+        "category": "Opciones 3",
+        "items": [
+            {
+                "text": "Cambiar Asiento",
+                "icon": "edit",
+                "href": "#"
+            },
+            {
+                "text": "Depreciación",
+                "icon": "trending_down",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de inmuebles",
+                "icon": "domain",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de articulos",
+                "icon": "layers",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de códigos",
+                "icon": "code",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de grupos",
+                "icon": "group_work",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de producción",
+                "icon": "build",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de terceros",
+                "icon": "contacts",
+                "href": "#"
+            },
+            {
+                "text": "Generar contraseña",
+                "icon": "vpn_key",
+                "href": "#"
+            }
+        ]
+    },
+    {
+        "category": "Opciones 4",
+        "items": [
+            {
+                "text": "Cambiar Asiento",
+                "icon": "edit",
+                "href": "#"
+            },
+            {
+                "text": "Depreciación",
+                "icon": "trending_down",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de inmuebles",
+                "icon": "domain",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de articulos",
+                "icon": "layers",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de códigos",
+                "icon": "code",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de grupos",
+                "icon": "group_work",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de producción",
+                "icon": "build",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de terceros",
+                "icon": "contacts",
+                "href": "#"
+            },
+            {
+                "text": "Generar contraseña",
+                "icon": "vpn_key",
+                "href": "#"
+            }
+        ]
+    },
+    {
+        "category": "Opciones 5",
+        "items": [
+            {
+                "text": "Cambiar Asiento",
+                "icon": "edit",
+                "href": "#"
+            },
+            {
+                "text": "Depreciación",
+                "icon": "trending_down",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de inmuebles",
+                "icon": "domain",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de articulos",
+                "icon": "layers",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de códigos",
+                "icon": "code",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de grupos",
+                "icon": "group_work",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de producción",
+                "icon": "build",
+                "href": "#"
+            },
+            {
+                "text": "Fichas de terceros",
+                "icon": "contacts",
+                "href": "#"
+            },
+            {
+                "text": "Generar contraseña",
+                "icon": "vpn_key",
+                "href": "#"
+            }
+        ]
+    }
+]
